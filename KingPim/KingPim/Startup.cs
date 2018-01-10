@@ -36,10 +36,10 @@ namespace KingPim
 
                 var user = new ApplicationUser
                 {
-                    UserName = "PowerAdmin",
+                    UserName = "PowerAdminKingPim",
                     Email = "PowerAdminKingpim@live.se"
                 };
-                var Password = "KingPim@123.";
+                var Password = "Kingpim123@.";
                 var chkUser = UserManager.Create(user, Password);
 
                 //Add default User to Role Admin    

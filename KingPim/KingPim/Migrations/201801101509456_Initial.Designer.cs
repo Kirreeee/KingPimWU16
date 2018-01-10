@@ -13,7 +13,7 @@ namespace KingPim.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801101427321_Initial"; }
+            get { return "201801101509456_Initial"; }
         }
         
         string IMigrationMetadata.Source
