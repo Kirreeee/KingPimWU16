@@ -24,13 +24,6 @@ namespace KingPim.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        public DbSet<Attribute>Attributes { get; set; }
-        public DbSet<AttributeGroup>AttributeGroups { get; set; }
-        public DbSet<Catalog>Catalogs { get; set; }
-        public DbSet<Category>Categories { get; set; }
-        public DbSet<Product>Products { get; set; }
-        public DbSet<Subcategory>Subcategories { get; set; }
-        public DbSet<SystemReadOnlyAttribute>SystemReadOnlyAttributes { get; set; }
 
         public static ApplicationDbContext Create()
         {
