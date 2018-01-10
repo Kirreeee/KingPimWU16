@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace KingPim.Models
+{
+    public class Category
+    {
+        public int Id { get; set; }
+        public string CatalogName { get; set; }
+        public virtual Catalog Catalog { get; set; }
+        public int CatalogId { get; set; }
+        public List<Subcategory> SubCategory { get; set; }
+    }
+}
