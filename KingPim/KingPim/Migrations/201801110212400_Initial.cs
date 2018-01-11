@@ -42,8 +42,9 @@ namespace KingPim.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        CatalogName = c.String(),
+                        CategoryName = c.String(),
                         CatalogId = c.Int(nullable: false),
+                        CatalogName = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Catalogs", t => t.CatalogId, cascadeDelete: true)

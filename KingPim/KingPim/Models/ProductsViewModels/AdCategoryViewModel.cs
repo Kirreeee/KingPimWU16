@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace KingPim.Models
+namespace KingPim.Models.ProductsViewModels
 {
-    public class Category
+    public class AdCategoryViewModel
     {
         public int Id { get; set; }
+        public List<Catalog>Catalog { get; set; }
+        public List<Category>Category { get; set; }
         public string CategoryName { get; set; }
-        public virtual Catalog Catalog { get; set; }
-        public int CatalogId { get; set; }
         public string CatalogName { get; set; }
-        public List<Subcategory> SubCategory { get; set; }
+        public int CatalogId { get; set; }
     }
 }

@@ -200,24 +200,30 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CatalogsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801101509456_Initial.cs" />
-    <Compile Include="Migrations\201801101509456_Initial.Designer.cs">
-      <DependentUpon>201801101509456_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201801110212400_Initial.cs" />
+    <Compile Include="Migrations\201801110212400_Initial.Designer.cs">
+      <DependentUpon>201801110212400_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\AttributeGroup.cs" />
     <Compile Include="Models\Catalog.cs" />
+    <Compile Include="Models\CatalogsViewModels\AdCatalogsViewModel.cs" />
+    <Compile Include="Models\CatalogsViewModels\CatalogsViewModel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductsViewModels\AdCategoryViewModel.cs" />
+    <Compile Include="Models\ProductsViewModels\ProductViewModel.cs" />
     <Compile Include="Models\Subcategory.cs" />
     <Compile Include="Models\SystemReadOnlyAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -257,9 +263,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -280,6 +283,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Catalogs\Create.cshtml" />
+    <Content Include="Views\Catalogs\Delete.cshtml" />
+    <Content Include="Views\Catalogs\Details.cshtml" />
+    <Content Include="Views\Catalogs\Edit.cshtml" />
+    <Content Include="Views\Catalogs\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,8 +316,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801101509456_Initial.resx">
-      <DependentUpon>201801101509456_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801110212400_Initial.resx">
+      <DependentUpon>201801110212400_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
