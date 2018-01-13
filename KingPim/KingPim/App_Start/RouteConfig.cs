@@ -16,7 +16,7 @@ namespace KingPim
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Products", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

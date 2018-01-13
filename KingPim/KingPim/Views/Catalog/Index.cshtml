@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KingPim.Models.Category>
+﻿@model IEnumerable<KingPim.Models.Catalog>
 
 @{
     ViewBag.Title = "Index";
@@ -13,9 +13,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Catalog.CatalogName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CatalogName)
         </th>
         <th></th>
@@ -23,9 +20,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Catalog.CatalogName)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.CatalogName)
         </td>
