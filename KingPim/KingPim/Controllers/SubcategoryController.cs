@@ -1,5 +1,5 @@
 ﻿using KingPim.Models;
-using KingPim.Models.CategoriesViewModels;
+using KingPim.Models.SubcategoriesViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,45 +8,41 @@ using System.Web.Mvc;
 
 namespace KingPim.Controllers
 {
-    public class CategoryController : Controller
+    public class SubcategoryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-       
-        // GET: Category
+     
+        // GET: Subcategory
         public ActionResult Index()
         {
-            var categoryList = new CategoryViewModel();
+            var subcategoryList = new SubcategoryViewModel();
             {
-                categoryList.Category = db.Categories.ToList();
+                subcategoryList.Subcategory = db.Subcategories.ToList();
             }
-            if (categoryList == null)
+            if (subcategoryList == null)
             {
                 return HttpNotFound();
-
             }
-            return View(categoryList);
-           
+            return View(subcategoryList);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.CatalogId = new SelectList(db.Catalogs, "Id", "CatalogName");
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
             return View();
         }
-        
+
         [HttpPost]
-        public ActionResult Create(Category category)
+        public ActionResult Create(Subcategory subcategory)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                db.Subcategories.Add(subcategory);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-
-            ViewBag.CatalogId = new SelectList(db.Catalogs, "Id", "CatalogName", category.CatalogId);
 
             return View();
         }

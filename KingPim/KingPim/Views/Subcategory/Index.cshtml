@@ -1,4 +1,4 @@
-﻿@model KingPim.Models.CatalogsViewModels.CatalogViewModel
+﻿@model KingPim.Models.SubcategoriesViewModels.SubcategoryViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,15 +12,22 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubcateoryName)
+        </th>
+        <th></th>*@
     </tr>
 
-@foreach (var item in Model.Catalog) {
+@foreach (var item in Model.Subcategory) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CatalogName)
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubcateoryName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

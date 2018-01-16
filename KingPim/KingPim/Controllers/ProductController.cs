@@ -1,4 +1,5 @@
 ﻿using KingPim.Models;
+using KingPim.Models.ProductsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,43 @@ namespace KingPim.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            var products = db.Products.ToList();
+            var products = new ProductViewModel();
+            {
+                products.Product = db.Products.ToList();
+            }
             return View(products);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            ViewBag.SubcategoryId = new SelectList(db.Subcategories, "Id", "SubcategoryId");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(AdProductViewModel Adproduct)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                var newProduct = new Product();
+                {
+                    newProduct.ProductName = Adproduct.ProdName;
+                    //newProduct.SubCategoryName = Adproduct.SubcategoryName;
+                    newProduct.Description = Adproduct.Descriptions;
+                    newProduct.Created = DateTime.Now;
+                }
+
+                
+
+                db.Products.Add(newProduct);
+                db.SaveChanges();
+
+                RedirectToAction("Index");
+            }
+
+            return View();
         }
     }
 }

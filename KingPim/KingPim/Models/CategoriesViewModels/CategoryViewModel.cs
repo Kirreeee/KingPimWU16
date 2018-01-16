@@ -6,9 +6,9 @@ using System.Web;
 
 namespace KingPim.Models.CategoriesViewModels
 {
-    public class AdCategoryViewModel
+    public class CategoryViewModel
     {
       public List<Category>Category { get; set; }
-        
+      
     }
 }

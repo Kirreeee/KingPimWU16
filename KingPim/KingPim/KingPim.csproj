@@ -204,6 +204,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SubcategoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,16 +212,34 @@
     <Compile Include="Migrations\201801110212400_Initial.Designer.cs">
       <DependentUpon>201801110212400_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801161810020_initial_2.cs" />
+    <Compile Include="Migrations\201801161810020_initial_2.Designer.cs">
+      <DependentUpon>201801161810020_initial_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801161814035_Initail_3.cs" />
+    <Compile Include="Migrations\201801161814035_Initail_3.Designer.cs">
+      <DependentUpon>201801161814035_Initail_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801161839063_Initial_4.cs" />
+    <Compile Include="Migrations\201801161839063_Initial_4.Designer.cs">
+      <DependentUpon>201801161839063_Initial_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountsViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\AttributeGroup.cs" />
     <Compile Include="Models\Catalog.cs" />
+    <Compile Include="Models\CatalogsViewModels\AdCatalogViewModel.cs" />
+    <Compile Include="Models\CatalogsViewModels\CatalogViewModel.cs" />
     <Compile Include="Models\CategoriesViewModels\AdCategoryViewModel.cs" />
+    <Compile Include="Models\CategoriesViewModels\CategoryViewModel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManagesViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductsViewModels\AdProductViewModel.cs" />
+    <Compile Include="Models\ProductsViewModels\ProductViewModel.cs" />
+    <Compile Include="Models\SubcategoriesViewModels\SubcategoryViewModel.cs" />
     <Compile Include="Models\Subcategory.cs" />
     <Compile Include="Models\SystemReadOnlyAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -285,6 +304,9 @@
     <Content Include="Views\Catalog\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Subcategory\Index.cshtml" />
+    <Content Include="Views\Subcategory\Create.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +327,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801110212400_Initial.resx">
       <DependentUpon>201801110212400_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161810020_initial_2.resx">
+      <DependentUpon>201801161810020_initial_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161814035_Initail_3.resx">
+      <DependentUpon>201801161814035_Initail_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161839063_Initial_4.resx">
+      <DependentUpon>201801161839063_Initial_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

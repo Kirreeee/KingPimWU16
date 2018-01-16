@@ -11,6 +11,7 @@ namespace KingPim.Models
         public string ProductName { get; set; }
         public string Description { get; set; }
         public virtual Subcategory Subcategory { get; set; }
+        public string SubCategoryName { get; set; }
         public int SubcategoryId { get; set; }
         public DateTime Created { get; set; }
     }

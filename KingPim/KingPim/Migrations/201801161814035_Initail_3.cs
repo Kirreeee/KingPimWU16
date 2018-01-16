@@ -1,0 +1,18 @@
+namespace KingPim.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Initail_3 : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Categories", "CatalogName", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Categories", "CatalogName");
+        }
+    }
+}
