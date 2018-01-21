@@ -12,5 +12,7 @@ namespace KingPim.Models
         public virtual Catalog Catalog { get; set; }
         public int CatalogId { get; set; }
         public List<Subcategory> SubCategory { get; set; }
+        public bool Published { get; set; }
+
     }
 }

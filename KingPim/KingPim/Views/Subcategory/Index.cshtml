@@ -12,13 +12,10 @@
 </p>
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubcateoryName)
-        </th>
-        <th></th>*@
+        <th>Category Name</th>
+        <th>SubCategory Name</th>
+        <th>Published/Not Published</th>
+        <th>Redigera</th>
     </tr>
 
 @foreach (var item in Model.Subcategory) {
@@ -30,9 +27,12 @@
             @Html.DisplayFor(modelItem => item.SubcateoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.Published)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

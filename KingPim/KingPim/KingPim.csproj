@@ -201,6 +201,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttributeController.cs" />
+    <Compile Include="Controllers\AttributeGroupController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -233,10 +234,16 @@
     <Compile Include="Migrations\201801211305547_Initial_6.Designer.cs">
       <DependentUpon>201801211305547_Initial_6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801211536267_Initial_7.cs" />
+    <Compile Include="Migrations\201801211536267_Initial_7.Designer.cs">
+      <DependentUpon>201801211536267_Initial_7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountsViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\AttributeGroup.cs" />
+    <Compile Include="Models\AttributeGroupsViewModels\AdAttributeGroupViewModel.cs" />
+    <Compile Include="Models\AttributeGroupsViewModels\AttributeGroupViewModel.cs" />
     <Compile Include="Models\AttributeViewModels\AdAttributeViewModel.cs" />
     <Compile Include="Models\AttributeViewModels\AttributeViewModel.cs" />
     <Compile Include="Models\Catalog.cs" />
@@ -320,6 +327,8 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Attribute\Index.cshtml" />
     <Content Include="Views\Attribute\Create.cshtml" />
+    <Content Include="Views\AttributeGroup\Index.cshtml" />
+    <Content Include="Views\AttributeGroup\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801211305547_Initial_6.resx">
       <DependentUpon>201801211305547_Initial_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211536267_Initial_7.resx">
+      <DependentUpon>201801211536267_Initial_7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

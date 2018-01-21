@@ -18,6 +18,7 @@ namespace KingPim.Controllers
             var attributeList = new AttributeViewModel();
             {
                 attributeList.Attribute = db.Attributes.ToList();
+                attributeList.AttributeGroup = db.AttributeGroups.ToList();
             }
 
             if (attributeList == null)
@@ -32,6 +33,7 @@ namespace KingPim.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.AttributeGroupId = new SelectList(db.AttributeGroups, "Id", "AttributeGroupName");
             return View();
         }
 
@@ -45,6 +47,8 @@ namespace KingPim.Controllers
                     var newAttribute = new Models.Attribute();
                     {
                         newAttribute.AttributeName = adAttribute.AttributeName;
+                        newAttribute.AttributeGroupId = adAttribute.AttributeGroupId;
+                       
                     }
 
                     db.Attributes.Add(newAttribute);

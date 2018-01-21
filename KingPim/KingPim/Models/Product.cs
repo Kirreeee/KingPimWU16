@@ -13,5 +13,6 @@ namespace KingPim.Models
         public virtual Subcategory Subcategory { get; set; }
         public int SubcategoryId { get; set; }
         public DateTime Created { get; set; }
+        public bool Published { get; set; }
     }
 }

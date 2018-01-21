@@ -12,5 +12,6 @@ namespace KingPim.Models
         public virtual Category Category { get; set; }
         public int CategoryId { get; set; }
         public List<Product> Product { get; set; }
+        public bool Published { get; set; }
     }
 }

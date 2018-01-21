@@ -11,5 +11,6 @@ namespace KingPim.Models
         public string CatalogName { get; set; }
         public List<Subcategory> SubCategory { get; set; }
         public List<Category> Category { get; set; }
+        
     }
 }

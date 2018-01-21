@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace KingPim.Models.AttributeViewModels
+namespace KingPim.Models.AttributeGroupsViewModels
 {
-    public class AttributeViewModel
+    public class AttributeGroupViewModel
     {
-        public List<Attribute>Attribute { get; set; }
         public List<AttributeGroup>AttributeGroup { get; set; }
     }
 }
