@@ -11,7 +11,7 @@ namespace KingPim.Controllers
     public class AttributeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-       
+
         // GET: Attribute
         public ActionResult Index()
         {
@@ -26,9 +26,36 @@ namespace KingPim.Controllers
             }
 
             return View(attributeList);
-         
+
         }
 
-        
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult Create(AdAttributeViewModel adAttribute)
+        {
+            if (adAttribute != null)
+            {
+                if (ModelState.IsValid)
+                {
+
+                    var newAttribute = new Models.Attribute();
+                    {
+                        newAttribute.AttributeName = adAttribute.AttributeName;
+                    }
+
+                    db.Attributes.Add(newAttribute);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            return View();
+        }
+
+
     }
 }

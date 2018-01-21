@@ -237,6 +237,7 @@
     <Compile Include="Models\AccountsViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\AttributeGroup.cs" />
+    <Compile Include="Models\AttributeViewModels\AdAttributeViewModel.cs" />
     <Compile Include="Models\AttributeViewModels\AttributeViewModel.cs" />
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\CatalogsViewModels\AdCatalogViewModel.cs" />
@@ -318,10 +319,10 @@
     <Content Include="Views\Subcategory\Create.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Attribute\Index.cshtml" />
+    <Content Include="Views\Attribute\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Attributes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
