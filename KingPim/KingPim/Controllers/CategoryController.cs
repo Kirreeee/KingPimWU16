@@ -36,17 +36,24 @@ namespace KingPim.Controllers
         }
         
         [HttpPost]
-        public ActionResult Create(Category category)
+        public ActionResult Create(AdCategoryViewModel adCategory)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                var newCategory = new Category();
+                {
+                    newCategory.CatalogId = adCategory.CatalogId;
+                    newCategory.CategoryName = adCategory.Category.CategoryName;
+                    
+                   
+                }
+                db.Categories.Add(newCategory);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CatalogId = new SelectList(db.Catalogs, "Id", "CatalogName", category.CatalogId);
+            ViewBag.CatalogId = new SelectList(db.Catalogs, "Id", "CatalogName", adCategory.CatalogId);
 
             return View();
         }

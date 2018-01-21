@@ -8,7 +8,9 @@ namespace KingPim.Models.CategoriesViewModels
 {
     public class AdCategoryViewModel
     {
-      public List<Category>Category { get; set; }
+      public Category Category { get; set; }
+      public int CatalogId { get; set; }
+      
         
     }
 }

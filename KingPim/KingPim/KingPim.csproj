@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttributeController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -224,10 +225,19 @@
     <Compile Include="Migrations\201801161839063_Initial_4.Designer.cs">
       <DependentUpon>201801161839063_Initial_4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801211241419_Initial_5.cs" />
+    <Compile Include="Migrations\201801211241419_Initial_5.Designer.cs">
+      <DependentUpon>201801211241419_Initial_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801211305547_Initial_6.cs" />
+    <Compile Include="Migrations\201801211305547_Initial_6.Designer.cs">
+      <DependentUpon>201801211305547_Initial_6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountsViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\AttributeGroup.cs" />
+    <Compile Include="Models\AttributeViewModels\AttributeViewModel.cs" />
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\CatalogsViewModels\AdCatalogViewModel.cs" />
     <Compile Include="Models\CatalogsViewModels\CatalogViewModel.cs" />
@@ -307,9 +317,11 @@
     <Content Include="Views\Subcategory\Index.cshtml" />
     <Content Include="Views\Subcategory\Create.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Attribute\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Attributes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -336,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801161839063_Initial_4.resx">
       <DependentUpon>201801161839063_Initial_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211241419_Initial_5.resx">
+      <DependentUpon>201801211241419_Initial_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211305547_Initial_6.resx">
+      <DependentUpon>201801211305547_Initial_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

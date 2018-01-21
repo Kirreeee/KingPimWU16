@@ -25,7 +25,7 @@ namespace KingPim.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.SubcategoryId = new SelectList(db.Subcategories, "Id", "SubcategoryId");
+            ViewBag.SubcategoryId = new SelectList(db.Subcategories, "Id", "SubcateoryName");
             return View();
         }
 
@@ -37,19 +37,18 @@ namespace KingPim.Controllers
                 
                 var newProduct = new Product();
                 {
-                    newProduct.ProductName = Adproduct.ProdName;
-                    //newProduct.SubCategoryName = Adproduct.SubcategoryName;
-                    newProduct.Description = Adproduct.Descriptions;
+                    newProduct.ProductName = Adproduct.Product.ProductName;
+                    newProduct.SubcategoryId = Adproduct.SubcategoryId;
+                    newProduct.Description = Adproduct.Product.Description;
                     newProduct.Created = DateTime.Now;
                 }
-
-                
 
                 db.Products.Add(newProduct);
                 db.SaveChanges();
 
-                RedirectToAction("Index");
+               return RedirectToAction("Index");
             }
+
 
             return View();
         }
