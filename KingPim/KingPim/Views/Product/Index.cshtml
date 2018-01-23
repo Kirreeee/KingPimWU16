@@ -1,5 +1,4 @@
 ﻿@model KingPim.Models.ProductsViewModels.ProductViewModel
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,38 +12,35 @@
 <table class="table">
     <tr>
 
-        <th>SubCateogry name</th>
-        <th>Product name</th>
-        <th>Description</th>
-        <th>Published/Not Published</th>
         <th>Created</th>
+        <th>Last Modifed</th>
+        <th>Published/Not Published</th>
+        <th>Version</th>
+        <th>Modifed By</th>
         <th>Redigera</th>
     </tr>
-
     @foreach (var item in Model.Product)
-    {
+        {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Subcategory.SubcateoryName)
+            @Html.DisplayFor(modelItem => item.ReadOnlyAttribute.Created)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
+            @Html.DisplayFor(modelItem => item.ReadOnlyAttribute.LastModified)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.ReadOnlyAttribute.Published)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Published)
+            @Html.DisplayFor(modelItem => item.ReadOnlyAttribute.Version)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Created)
+            @Html.DisplayFor(modelItem => item.ReadOnlyAttribute.ModifiedBy)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
         </td>
     </tr>
+        
     }
-
 </table>

@@ -9,8 +9,10 @@ namespace KingPim.Models.ProductsViewModels
     public class AdProductViewModel
     {
         public Product Product { get; set; }
-        public virtual Subcategory Subcategory { get; set; }
-        public int SubcategoryId  { get; set; }
+        public int SubcategoryId { get; set; }
+       
+
+
 
 
 

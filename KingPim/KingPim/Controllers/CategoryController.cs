@@ -43,12 +43,13 @@ namespace KingPim.Controllers
                 var newCategory = new Category();
                 {
                     newCategory.CatalogId = adCategory.CatalogId;
-                    newCategory.CategoryName = adCategory.Category.CategoryName;
+                    newCategory.CategoryName = adCategory.CategoryName;
                     
                    
                 }
                 db.Categories.Add(newCategory);
                 db.SaveChanges();
+                
 
                 return RedirectToAction("Index");
             }

@@ -8,5 +8,8 @@ namespace KingPim.Models.ProductsViewModels
     public class ProductViewModel
     {
         public List<Product>Product { get; set; }
+        
+        
+        
     }
 }

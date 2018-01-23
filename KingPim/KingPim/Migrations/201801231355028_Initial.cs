@@ -44,7 +44,7 @@ namespace KingPim.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(),
                         CatalogId = c.Int(nullable: false),
-                        CatalogName = c.String(),
+                        Published = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Catalogs", t => t.CatalogId, cascadeDelete: true)
@@ -57,6 +57,7 @@ namespace KingPim.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         SubcateoryName = c.String(),
                         CategoryId = c.Int(nullable: false),
+                        Published = c.Boolean(nullable: false),
                         Catalog_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -73,11 +74,28 @@ namespace KingPim.Migrations
                         ProductName = c.String(),
                         Description = c.String(),
                         SubcategoryId = c.Int(nullable: false),
+                        ReadOnlyAttributeId = c.Int(nullable: false),
                         Created = c.DateTime(nullable: false),
+                        Published = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.ReadOnlyAttributes", t => t.ReadOnlyAttributeId, cascadeDelete: true)
                 .ForeignKey("dbo.Subcategories", t => t.SubcategoryId, cascadeDelete: true)
-                .Index(t => t.SubcategoryId);
+                .Index(t => t.SubcategoryId)
+                .Index(t => t.ReadOnlyAttributeId);
+            
+            CreateTable(
+                "dbo.ReadOnlyAttributes",
+                c => new
+                    {
+                        ReadOnlyAttributeId = c.Int(nullable: false, identity: true),
+                        Version = c.Int(nullable: false),
+                        ModifiedBy = c.String(),
+                        Created = c.DateTime(nullable: false),
+                        LastModified = c.DateTime(nullable: false),
+                        Published = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ReadOnlyAttributeId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -101,21 +119,6 @@ namespace KingPim.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
-            
-            CreateTable(
-                "dbo.SystemReadOnlyAttributes",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        LastModified = c.DateTime(nullable: false),
-                        VersionNumber = c.Int(nullable: false),
-                        Published = c.Boolean(nullable: false),
-                        Created = c.DateTime(nullable: false),
-                        ModifiedBy_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.ModifiedBy_Id)
-                .Index(t => t.ModifiedBy_Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -166,23 +169,23 @@ namespace KingPim.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.SystemReadOnlyAttributes", "ModifiedBy_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Subcategories", "Catalog_Id", "dbo.Catalogs");
             DropForeignKey("dbo.Products", "SubcategoryId", "dbo.Subcategories");
+            DropForeignKey("dbo.Products", "ReadOnlyAttributeId", "dbo.ReadOnlyAttributes");
             DropForeignKey("dbo.Subcategories", "CategoryId", "dbo.Categories");
             DropForeignKey("dbo.Categories", "CatalogId", "dbo.Catalogs");
             DropForeignKey("dbo.Attributes", "AttributeGroupId", "dbo.AttributeGroups");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.SystemReadOnlyAttributes", new[] { "ModifiedBy_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Products", new[] { "ReadOnlyAttributeId" });
             DropIndex("dbo.Products", new[] { "SubcategoryId" });
             DropIndex("dbo.Subcategories", new[] { "Catalog_Id" });
             DropIndex("dbo.Subcategories", new[] { "CategoryId" });
@@ -191,9 +194,9 @@ namespace KingPim.Migrations
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.SystemReadOnlyAttributes");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.ReadOnlyAttributes");
             DropTable("dbo.Products");
             DropTable("dbo.Subcategories");
             DropTable("dbo.Categories");

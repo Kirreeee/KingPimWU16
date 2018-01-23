@@ -31,7 +31,7 @@ namespace KingPim.Models
         public DbSet<Category>Categories { get; set; }
         public DbSet<Product>Products { get; set; }
         public DbSet<Subcategory>Subcategories { get; set; }
-        public DbSet<SystemReadOnlyAttribute>SystemReadOnlyAttributes { get; set; }
+        public DbSet<ReadOnlyAttribute> ReadOnlyAttribute { get; set; }
 
         public static ApplicationDbContext Create()
         {
